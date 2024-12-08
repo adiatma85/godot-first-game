@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://k8ua5jw4uogj"]
+
+[ext_resource type="Texture2D" uid="uid://cxb5q4s0jh4ro" path="res://assets/sprites/knight.png" id="1_lunee"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_sqdxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5khsh"]
+atlas = ExtResource("1_lunee")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vate"]
+atlas = ExtResource("1_lunee")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_818eg"]
+atlas = ExtResource("1_lunee")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lurc"]
+atlas = ExtResource("1_lunee")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipt7v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5khsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vate")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_818eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lurc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svedv"]
+radius = 6.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_sqdxq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.8147e-06, -8)
+scale = Vector2(1.125, 1.125)
+sprite_frames = SubResource("SpriteFrames_ipt7v")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.206992
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_svedv")
