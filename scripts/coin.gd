@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	var iniStringCoin: String = "+1 Coin"
 	print(iniStringCoin)
 	queue_free()
