@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://b35v1w0cayqcd"]
+[gd_scene load_steps=14 format=4 uid="uid://b35v1w0cayqcd"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5i6cw"]
 [ext_resource type="PackedScene" uid="uid://k8ua5jw4uogj" path="res://scenes/player.tscn" id="1_vaf1m"]
 [ext_resource type="PackedScene" uid="uid://clpkmbime5k6m" path="res://scenes/grass_platform.tscn" id="3_50mfq"]
 [ext_resource type="PackedScene" uid="uid://qmhy5numdotr" path="res://scenes/world_tilemap.tscn" id="3_itjye"]
 [ext_resource type="PackedScene" uid="uid://bw4x23sgqodgk" path="res://scenes/coin.tscn" id="4_kwqvy"]
 [ext_resource type="PackedScene" uid="uid://bvy7dqfw7yw2p" path="res://scenes/killzone.tscn" id="5_gyr68"]
 [ext_resource type="PackedScene" uid="uid://ympkftfsayas" path="res://scenes/green_slime.tscn" id="6_biuby"]
+[ext_resource type="FontFile" uid="uid://dh16pm1fvs844" path="res://assets/fonts/PixelOperator8.ttf" id="7_nxrho"]
 
 [sub_resource type="Animation" id="Animation_gxpqt"]
 resource_name = "Move"
@@ -55,6 +57,17 @@ _data = {
 distance = -111.0
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_5i6cw")
+
+[node name="Score Label" type="Label" parent="GameManager"]
+offset_left = -72.0
+offset_top = -33.0
+offset_right = -32.0
+offset_bottom = -10.0
+text = "JANCOK"
 
 [node name="player" parent="." instance=ExtResource("1_vaf1m")]
 
@@ -113,3 +126,13 @@ position = Vector2(499, 40)
 [node name="Green Slime" parent="." instance=ExtResource("6_biuby")]
 z_index = 5
 position = Vector2(89, -30)
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = -33.0
+offset_top = -80.0
+offset_right = 28.0
+offset_bottom = -57.0
+theme_override_fonts/font = ExtResource("7_nxrho")
+theme_override_font_sizes/font_size = 8
+text = "Space to Jump"
