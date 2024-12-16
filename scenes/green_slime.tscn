@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ympkftfsayas"]
+[gd_scene load_steps=10 format=3 uid="uid://ympkftfsayas"]
 
 [ext_resource type="Texture2D" uid="uid://d0ufshsdpqu1u" path="res://assets/sprites/slime_green.png" id="1_a0hus"]
 [ext_resource type="Script" path="res://scripts/green_slime.gd" id="1_swpsg"]
+[ext_resource type="PackedScene" uid="uid://bvy7dqfw7yw2p" path="res://scenes/killzone.tscn" id="2_u5r61"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ammid"]
 atlas = ExtResource("1_a0hus")
@@ -39,26 +40,27 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qydj3"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am63j"]
+size = Vector2(12, 11)
 
 [node name="Green Slime" type="Node2D"]
-
-[node name="green_slime" type="Area2D" parent="."]
-collision_mask = 2
 script = ExtResource("1_swpsg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="green_slime"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d30c1")
 autoplay = "default"
 frame_progress = 0.54808
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="green_slime"]
+[node name="Killzone" parent="." instance=ExtResource("2_u5r61")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_qydj3")
+shape = SubResource("RectangleShape2D_am63j")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(9, 0)
 
-[connection signal="body_entered" from="green_slime" to="green_slime" method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="green_slime" method="_on_timer_timeout"]
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-9, 0)
