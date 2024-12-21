@@ -4,6 +4,7 @@ var score: int = 0
 
 @onready var score_label: Label = $"Score Label"
 
+# Dipanggil dimana ini??
 func add_point():
 	score += 1
 	
