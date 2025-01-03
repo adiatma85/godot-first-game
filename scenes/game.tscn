@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b35v1w0cayqcd"]
+[gd_scene load_steps=15 format=4 uid="uid://b35v1w0cayqcd"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5i6cw"]
 [ext_resource type="PackedScene" uid="uid://k8ua5jw4uogj" path="res://scenes/player.tscn" id="1_vaf1m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvy7dqfw7yw2p" path="res://scenes/killzone.tscn" id="5_gyr68"]
 [ext_resource type="PackedScene" uid="uid://ympkftfsayas" path="res://scenes/green_slime.tscn" id="6_biuby"]
 [ext_resource type="FontFile" uid="uid://dh16pm1fvs844" path="res://assets/fonts/PixelOperator8.ttf" id="7_nxrho"]
+[ext_resource type="PackedScene" uid="uid://b8mf2xsi42el" path="res://scenes/bgm.tscn" id="9_svii5"]
 
 [sub_resource type="Animation" id="Animation_gxpqt"]
 resource_name = "Move"
@@ -136,3 +137,5 @@ offset_bottom = -57.0
 theme_override_fonts/font = ExtResource("7_nxrho")
 theme_override_font_sizes/font_size = 8
 text = "Space to Jump"
+
+[node name="BGM" parent="." instance=ExtResource("9_svii5")]
